@@ -1,7 +1,6 @@
 # Matthew Kaufer
 
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn import svm, datasets
 
 import csv
@@ -10,10 +9,12 @@ data = np.array(list(csv.reader(open('arrhythmia.data.csv'))))
 
 first_size = len(data[0])
 
+print("Starting data sanitation...")
+
 for i in range(len(data)):
     if len(data[i]) != first_size:
         print("Uh oh, jagged array", len(data[i]), first_size)
-        return
+        exit()
     for j in range(len(data[i])):
         # have do to some sketchy data cleanup here - for variables the dataset doesn't know,
         # it replcaes the number with a ?, so I assume 0 here, which may or may not be correct
@@ -21,6 +22,8 @@ for i in range(len(data)):
             data[i][j] = 0
         else:
             data[i][j] = float(data[i][j])
+
+print("Done sanitizing data")
 
 X = data[:,:-1]
 # everything but last column to be our X matrix
@@ -38,9 +41,12 @@ def svc_accuracy(svc):
             fails+=1
     return fails
 
-
+print("Training SVM...")
 svc = train_svc()
+print("Done training SVM")
+print("Calculating accuracy...")
 print("Total misclassifications", svc_accuracy(svc))
+print("Done calculating accuracy")
 
 # I should split the data into test data and training data
 # but there are a large amount of Y possibilities with very few

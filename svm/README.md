@@ -1,6 +1,6 @@
 # Usage
 
-Install `sklearn` and `numpy` and run `python arrhythmia.py`
+Install `sklearn` and `numpy`. `cd` to the `svm` directory and run `python arrhythmia.py`
 
 Dataset taken from [UCI arrhythmia dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/arrhythmia/)
 

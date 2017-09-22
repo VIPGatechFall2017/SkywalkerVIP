@@ -45,8 +45,7 @@ print("Training SVM...")
 svc = train_svc()
 print("Done training SVM")
 print("Calculating accuracy...")
-print("Total misclassifications", svc_accuracy(svc))
-print("Done calculating accuracy")
+print("Done calculating accuracy; Total misclassifications", svc_accuracy(svc))
 
 # I should split the data into test data and training data
 # but there are a large amount of Y possibilities with very few

@@ -6,6 +6,8 @@ import re
 import glob
 import cv2
 import datetime
+import matplotlib.pyplot as plt
+import collections
 
 def read_data():
 	df = pd.read_csv('data.txt', sep=';', header=None, delimiter=' ')
@@ -29,24 +31,34 @@ def save_img():
 def load_img():
 	return np.load('imgs.npy')
 
+def plot(labels):
+	objects = ('True', 'False')
+	y_pos = np.arange(len(objects))
+	dist = [sum(labels==True), sum(labels==False)]
+	plt.bar(y_pos, dist, align='center', alpha=0.5)
+	plt.xticks(y_pos, objects)
+	plt.title('Distribution')
+	plt.show()
+
 def testing(label_set):
-	loc = '../../zach_img/*.png'
-	# loc = './tmp/*.png'
+	# loc = '../../zach_img/*.png'
+	loc = './tmp/*.png'
 
 	addrs = glob.glob(loc)
 	regex = re.compile(r'\d+')
-	labels = []
-	pngs = []
-	tmp_label = []
+	labels, pngs = [], []
 
 	t0 = datetime.datetime.now()
 	for img in addrs:
 		index = int(regex.findall(img)[0])
-		labels.append(label_set[index][2])
+		labels.append(label_set[index][2]) # finger
 		image = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
 		image = cv2.resize(image, (100, 100), interpolation=cv2.INTER_CUBIC)
 		pngs.append(image)
 	print "Reading time:", datetime.datetime.now()-t0
+
+	labels = np.array(labels)
+	plot(labels)
 
 	pngs = np.array(pngs)
 	length = pngs.shape[0]
@@ -76,5 +88,4 @@ if __name__ == "__main__":
 	# save_img()
 	label_set = read_data()
 	# png = load_img()
-	# print png[0]
 	testing(label_set)

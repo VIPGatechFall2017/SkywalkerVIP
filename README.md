@@ -20,7 +20,15 @@ These data files maps each png image with a vector with a value of 99 for each f
 
 ![alt text](https://i.imgur.com/sepKeoR.png) 
 
-# 
+# Training
+
+we split our data sample to 80:20. That, we split the data to 80% training 20% testing. 
+
+# Model
+We used a polynomial based model, with a degree 3 - 9 producing the best accuracy. The confusion matrix shows us the result of our model. The larger our number is on the dark blue diagonal, the better our result. The light blue squares represent our number of misclassification data. 
+
+![alt text](https://i.imgur.com/E7y9Gh9.png)
+
 
 # Prerequisites and Dependencies
 You will need the following packages to run the code. To install the packages used in this project, run the following command.

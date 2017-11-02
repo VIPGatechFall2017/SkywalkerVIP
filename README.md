@@ -12,7 +12,7 @@ Support vector machine, or SVM, is a type of supervised learning algorithm used 
 Each group member sat down and collected data 5 minutes per one sitting. A 5 minute video file is converted into over 3500 png image files. Each of these images has a data.txt file that maps and identifies which finger is being bent. 
 
 # Preprossesing
-
+![alt text](https://i.imgur.com/2yLonV2.png)
 ![alt text](https://i.imgur.com/sepKeoR.png)
 
 These data files maps each png image with a vector with a value of 99 for each finger being bent. For the purpose of data processing, we've convereted these numbers into binary values of 1s and 0s, and then converted them again to a base-2 binary, so we can distinguish each finger with a unique value. 

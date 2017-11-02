@@ -7,7 +7,7 @@ Support vector machine, or SVM, is a type of supervised learning algorithm used 
 
 
 # Collecting Data
-[![Data Collection](https://img.youtube.com/vi/F-FhXAFbLvs/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "ultrasound video")
+[![Data Collection](https://img.youtube.com/vi/F-FhXAFbLvs/0.jpg)](https://www.youtube.com/watch?v=F-FhXAFbLvs&feature=youtu.be "ultrasound video")
 
 Each group member sat down and collected data 5 minutes per one sitting. A 5 minute video file is converted into over 3500 png image files. Each of these images has a data.txt file that maps and identifies which finger is being bent. 
 

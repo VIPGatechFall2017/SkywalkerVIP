@@ -15,7 +15,18 @@ Each group member sat down and collected data 5 minutes per one sitting. A 5 min
 
 These data files maps each png image with a vector with a value of 99 for each finger being bent. For the purpose of data processing, we've convereted these numbers into binary values of 1s and 0s, and then converted them again to a base-2 binary, so we can distinguish each finger with a unique value. 
 
-# Running the Code 
+# Prerequisites and Dependencies
+You will need the following packages to run the code. To install the packages used in this project, run the following command.
+```
+pip install numpy, scipy scikit-learn, pandas
+```
+
+
+
+
+
+
+# Running the code
 
 To test and run this code, you will need the following:
   * data.txt  //TODO link data.txt

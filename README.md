@@ -36,11 +36,7 @@ You will need the following packages to run the code. To install the packages us
 pip install -r requirements.txt
 pip install opencv-python
 ```
-
-
-
-
-
+Our code is based on python version 2.7
 
 # Running the code
 
@@ -50,12 +46,8 @@ To test and run this code, you will need the following:
   * svm.py
 
 
-#
-
 # Usage
 
 Install `sklearn` and `numpy`. `cd` to the `svm` directory and run `python arrhythmia.py`
-
-Dataset taken from [UCI arrhythmia dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/arrhythmia/)
 
 Read the comments for some details about the code

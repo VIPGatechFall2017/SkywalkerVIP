@@ -13,9 +13,11 @@ Each group member sat down and collected data 5 minutes per one sitting. A 5 min
 
 # Preprossesing
 We downsized our images to 28x28 for faster processing
+
 ![alt text](https://i.imgur.com/2yLonV2.png)
 
 These data files maps each png image with a vector with a value of 99 for each finger being bent. For the purpose of data processing, we've convereted these numbers into binary values of 1s and 0s, and then converted them again to a base-2 binary, so we can distinguish each finger with a unique value. 
+
 ![alt text](https://i.imgur.com/sepKeoR.png) 
 
 # 

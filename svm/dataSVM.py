@@ -77,15 +77,40 @@ def mov_to_png(videoPath, imgPath):
 
     frame_num = 0
 
+    if not os.path.isdir(imgPath):
+        print 'New directory ' + imgPath + ' has been created'
+        cmd = 'mkdir ' + imgPath
+        os.system(cmd)
+
+    # start time
+    t0 = datetime.datetime.now()
+    print 'Video reading start time: ', t0
+
     while(1):
         ret, frame = cap.read()
 
         if ret:
-            save_path = os.path.join(imgPath, fileName, '_', str(frame_num) + '.png')
-            imsave()
+            save_path = imgPath + "/" + fileName + '_'+str(frame_num) + '.png'
+
+            gray_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+            pil_img = Image.fromarray(gray_img)
+
+            box = (75, 0, 535, 460)
+            pil_img = pil_img.crop(box)
+
+            pil_img = pil_img.resize((28, 28))
+            pil_img.save(save_path)
+
             frame_num += 1
+
         else:
             break;
+
+    # calculate total reading time: endTime - initialTime
+    end = datetime.datetime.now()-t0
+    print 'Video convert total time: ', end
+
 
 # textPath: where data.txt is located on your machine
 # threshold: must be [0, 99]; number greater or equal to the specified

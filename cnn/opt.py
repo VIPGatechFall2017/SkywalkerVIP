@@ -1,23 +1,25 @@
-def _loss(logits,labels):
+import tensorflow as tf
+
+def loss_(logits,labels):
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=labels, name='xentropy')
     loss_op = tf.reduce_mean(cross_entropy, name='xentropy')
     return loss_op
 
-def _minimize(loss, learning_rate):
+def minimize_(loss, learning_rate):
     tf.summary.scalar(loss.op.name, loss)
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
     global_step = tf.Variable(0, name='global_step', trainable=False)
     train_op = optimizer.minimize(loss, global_step=global_step)
     return train_op
 
-def _evaluate(logits, labels):
+def evaluate_(logits, labels):
     predicted = tf.argmax(tf.nn.softmax(logits))
     expected = tf.argmax(labels)
     correct_pred = tf.equal(predicted, expected)
     accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
     return accuracy
 
-def _eval(sess, accuracy, x, y_true, data_set, eval_log):
+def eval_(sess, accuracy, x, y_true, data_set, eval_log):
     true_count = 0
     steps_per_epoch = data_set.num_examples // 32
     num_examples = steps_per_epoch * 32

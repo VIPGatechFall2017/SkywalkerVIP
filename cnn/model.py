@@ -1,7 +1,7 @@
 from layer import *
 from parameters import *
 
-def conv_net(x, weights, biases, keep_prob=0.5):
+def conv_net(x, weights, biases, img_size, num_channels, keep_prob=0.5):
     x = tf.reshape(x, [-1, img_size, img_size, num_channels])
 
     conv1 = conv2d_layer(x, weights['wc1'], biases['bc1'], tf.nn.relu)

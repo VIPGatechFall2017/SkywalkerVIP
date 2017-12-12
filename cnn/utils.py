@@ -82,7 +82,8 @@ def plot_images(images, cls_true, cls_pred=None):
         ax.set_yticks([])
     plt.show()
 
-def plot_conv_weights(weights, input_channel=0):
+def plot_conv_weights(sess, weights, input_channel=0):
+    import math
     w = sess.run(weights)
     w_min = np.min(w)
     w_max = np.max(w)
@@ -98,9 +99,10 @@ def plot_conv_weights(weights, input_channel=0):
         ax.set_yticks([])
     plt.show()
 
-def plot_conv_layer(layer, image):
-    image = image.reshape(1, img_size_flat)
-    feed_dict = {x: image}
+def plot_conv_layer(sess, x, layer, image):
+    import math
+    image = image.reshape(-1, )
+    feed_dict = {x: [image]}
     values = sess.run(layer, feed_dict=feed_dict)
     num_filters = values.shape[3]
     num_grids = math.ceil(math.sqrt(num_filters))
